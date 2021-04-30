@@ -5,10 +5,8 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 # Creating ChatBot Instance
 chatbot = ChatBot(
     'BankBuddy',
-    storage_adapter='chatterbot.storage.SQLStorageAdapter',
     logic_adapters=[
         'chatterbot.logic.MathematicalEvaluation',
-        'chatterbot.logic.TimeLogicAdapter',
         'chatterbot.logic.BestMatch',
         {
             'import_path': 'chatterbot.logic.BestMatch',
@@ -16,7 +14,6 @@ chatbot = ChatBot(
             'maximum_similarity_threshold': 0.90
         }
     ],
-    database_uri='sqlite:///database.sqlite3'
 )
 
 # Training with Personal Ques & Ans
