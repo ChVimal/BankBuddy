@@ -17,19 +17,11 @@ chatbot = ChatBot(
 )
 
 # Training with Personal Ques & Ans
-conversation = [
-    "Hello",
-    "Hi there!",
-    "How can i help?",
-    "I want to open a new account",
-    "Thank you for your interest sir but you have to visit nearest branch of our bank for account opening.",
-    "Okay",
-    "Anything else you need help with ?",
-    "No. Thank you for your help.",
-    "Have a good day, Sir."
-    "No. Bye",
-    "Bye"
-]
+training_data_quesans = open('training_data/ques_ans.txt').read().splitlines()
+training_data_personal = open(
+    'training_data/personal_ques.txt').read().splitlines()
+
+training_data = training_data_quesans + training_data_personal
 
 trainer = ListTrainer(chatbot)
-trainer.train(conversation)
+trainer.train(training_data)
